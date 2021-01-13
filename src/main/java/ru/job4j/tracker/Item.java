@@ -5,18 +5,16 @@ import java.time.format.DateTimeFormatter;
 public class Item {
 
     private int id;
-
     private String name;
 
-    public Item First() {
-        return First();
+    public Item() {
     }
 
-    public Item Second(int id) {
-        return Second(id);
+    public Item(int id) {
+
     }
 
-    public Item Third(int id, String name) {
-        return Third(id, name);
+    public Item(int id, String name) {
+
     }
 }
