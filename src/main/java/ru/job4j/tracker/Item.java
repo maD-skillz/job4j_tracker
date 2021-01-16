@@ -43,9 +43,9 @@ public class Item {
         this.created = created;
     }
 
-    public static void main(String[] args) {
+    public void Time(String[] args) {
         Item item = new Item();
-        item.setCreated();
+        System.out.println(getCreated());
     }
 
 }
