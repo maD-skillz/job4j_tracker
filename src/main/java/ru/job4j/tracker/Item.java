@@ -43,6 +43,13 @@ public class Item {
         this.created = created;
     }
 
+    @Override
+    public String toString() {
+        return "Item{" +
+                "name='" + name + '\'' +
+                '}';
+    }
+
     public void Time(String[] args) {
         Item item = new Item();
         System.out.println(getCreated());
