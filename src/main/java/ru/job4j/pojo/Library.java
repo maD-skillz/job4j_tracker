@@ -15,26 +15,17 @@ public class Library {
        for (int i = 0; i < books.length; i++) {
             Book count = books[i];
             System.out.println(count.getName());
-
-     /*       for (int j = 0;j < books.length; j++) {
-                Book temp = books[j];
-                books[j] = books[i];
-                books[i] = temp;
-                System.out.println(temp.getName());
-            } */
-        }
+       }
 
        books[0] = unnamed3;
        books[3] = cleanCode;
         for (int j = 0; j < books.length; j++) {
             Book count2 = books[j];
             System.out.println(count2.getName());
-        }
 
-        for (int k = 0; k < books.length; k++) {
-            if (books[k] == cleanCode) {
-                books[k] = cleanCode;
-                System.out.println(books[k]);
+            if (books[j].getName().equals("Clean Code")) {
+                Book clean = books[j];
+                System.out.println(clean.getName());
             }
         }
     }
