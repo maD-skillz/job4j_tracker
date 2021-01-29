@@ -23,7 +23,7 @@ public class Library {
             Book count2 = books[j];
             System.out.println(count2.getName());
 
-            if (books[j].getName().equals("Clean Code")) {
+            if (count2.getName().equals("Clean Code")) {
                 System.out.println(count2.getName());
             }
         }
