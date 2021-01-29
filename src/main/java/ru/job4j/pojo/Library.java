@@ -24,8 +24,7 @@ public class Library {
             System.out.println(count2.getName());
 
             if (books[j].getName().equals("Clean Code")) {
-                Book clean = books[j];
-                System.out.println(clean.getName());
+                System.out.println(count2.getName());
             }
         }
     }
