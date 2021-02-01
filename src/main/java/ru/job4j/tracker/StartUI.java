@@ -4,10 +4,14 @@ import java.time.format.DateTimeFormatter;
 
 public class StartUI {
    public static void main(String[] args) {
-      Item item = new Item();
-    //  DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
-    //  String getCreatedFormat = item.getCreated().format(formatter);
-    //  System.out.println(getCreatedFormat);
-      System.out.println(item.toString());
+        Item item = new Item();
+    /*  DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+      String getCreatedFormat = item.getCreated().format(formatter);
+      System.out.println(getCreatedFormat);
+      System.out.println(item.toString()); */
+
+      Tracker tracker = new Tracker();
+      tracker.add(item);
+      tracker.findById(item.getId());
    }
 }
