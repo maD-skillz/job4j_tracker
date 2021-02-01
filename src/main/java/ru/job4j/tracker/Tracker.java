@@ -14,19 +14,7 @@ public class Tracker {
     }
 
     public Item[] findAll() {
-        Item[] namesWithoutNull = new Item[items.length];
-        for (int i = 0; i < items.length; i++) {
-            Item name = items[i];
-            if (name != null) {
-                namesWithoutNull[size] = name;
-                size++;
-            }
-        }
-        namesWithoutNull = Arrays.copyOf(namesWithoutNull, size);
-        for (int i = 0; i < namesWithoutNull.length; i++) {
-            System.out.println(namesWithoutNull[i]);
-        }
-        return namesWithoutNull;
+        return Arrays.copyOf(items, size);
     }
 
     public Item[] findByName(String key) {
@@ -41,7 +29,6 @@ public class Tracker {
         }
         equalNames = Arrays.copyOf(equalNames, size);
         for (int i = 0; i < equalNames.length; i++) {
-            System.out.println(equalNames[i]);
         }
         return equalNames;
     }
