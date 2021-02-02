@@ -24,10 +24,8 @@ public class Tracker {
         for (int i = 0; i < items.length; i++) {
              Item name = items[i];
             if (item.getName().equals(key)) {
-                for (int j = 0; j < items.length; j++) {
-                    equalNames[j] = name;
+                    equalNames[i] = name;
                     count++;
-                }
             }
         }
         return Arrays.copyOf(equalNames, count);
