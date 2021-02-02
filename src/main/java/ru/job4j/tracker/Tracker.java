@@ -27,10 +27,7 @@ public class Tracker {
                 size++;
             }
         }
-        equalNames = Arrays.copyOf(equalNames, size);
-        for (int i = 0; i < equalNames.length; i++) {
-        }
-        return equalNames;
+        return Arrays.copyOf(equalNames, size);
     }
 
     public Item findById(int id) {
