@@ -20,24 +20,32 @@ public class Tracker {
     public Item[] findByName(String key) {
         Item[] equalNames = new Item[items.length];
         Item name = new Item();
-        for (int i = 0; i < items.length; i++) {
-            items[i] = equalNames[i];
+        for (int i = 0; i < equalNames.length; i++) {
             if (name.getName().equals(key)) {
                  equalNames = items;
             }
         }
-        return equalNames;
+        return items;
     }
-
-    public Item findById(int id) {
-        Item rsl = null;
+    private int indexOf(int id) {
+        int rsl = -1;
         for (int index = 0; index < size; index++) {
-            Item item = items[index];
-            if (item.getId() == id) {
-                rsl = item;
+            if (items[index].getId() == id) {
+                rsl = index;
                 break;
             }
         }
         return rsl;
     }
-}
+
+    public Item findById(int id) {
+        int index = indexOf(id);
+        return index != - 1 ? items[index] : null;
+    }
+
+
+    public boolean replace(int id, Item item) {
+        int re = indexOf(id);
+    }
+
+    }
