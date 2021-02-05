@@ -18,14 +18,15 @@ public class Tracker {
     }
 
     public Item[] findByName(String key) {
-        Item[] rsl = null;
-        for (int index = 0; index < size; index++) {
-            Item name = items[index];
+        Item[] rsl = new Item[items.length];
+        int count = 0;
+        for (int i = 0; i < size; i++) {
+            Item name = items[i];
             if (name.getName().equals(key)) {
-                rsl = name;
+                rsl[count++] = name;
             }
         }
-        return rsl;
+        return Arrays.copyOf(rsl, count);
     }
 
     private int indexOf(int id) {
@@ -46,8 +47,9 @@ public class Tracker {
 
 
     public boolean replace(int id, Item item) {
-        indexOf(id) = item;
+        if (indexOf(id) == ) {
 
+        }
     }
 
     }
