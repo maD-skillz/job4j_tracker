@@ -19,7 +19,8 @@ public class Matches {
                 System.out.println("Осталось сипчек: " + count);
                 if (count < 0) {
                     System.out.println("Спичек осталось меньше, чем " + matches);
-                    count =+ matches;
+                    turn = !turn;
+
                 }
             } else {
                 System.out.println("Вы ввели недопустимое количество спичек.");
