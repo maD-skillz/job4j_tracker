@@ -11,6 +11,7 @@ public class StartUI {
    }
 
    public void init(Scanner scanner, Tracker tracker) {
+      Item item = new Item();
       boolean run = true;
       while (run) {
          this.showMenu();
@@ -20,8 +21,8 @@ public class StartUI {
             System.out.println("=== Create a new Item ====");
             System.out.print("Enter name: ");
             String name = scanner.nextLine();
-            Item item = new Item(name);
-            tracker.add(item);
+            Item name1 = new Item(name);
+            tracker.add(name1);
 
          } else if (select == 1) {
             System.out.println("=== Show all items ====");
@@ -29,20 +30,15 @@ public class StartUI {
             System.out.println(Arrays.toString(arr));
 
          } else if (select == 2) {
-            Item item = new Item();
             System.out.println("=== Edit item ====");
-
             System.out.println("Enter Id: ");
             int getId = Integer.valueOf(scanner.nextLine());
             item.setId(getId);
-
             System.out.println("Enter Name: ");
             String editName = scanner.nextLine();
             item.setName(editName);
-            Item replName = new Item(editName);
-
-            tracker.replace(getId, replName);
-            if (tracker.replace(getId, replName)) {
+            Item replaceName = new Item(editName);
+            if (tracker.replace(getId, replaceName)) {
                   System.out.println("Успешно.");
                } else {
                   System.out.println("Ошибка.");
@@ -52,7 +48,6 @@ public class StartUI {
             System.out.println("=== Delete item ====");
             System.out.println("Enter item to delete: ");
             int delId = Integer.valueOf(scanner.nextLine());
-            tracker.delete(delId);
             if (tracker.delete(delId)) {
                System.out.println("Успешно.");
             } else {
@@ -74,9 +69,9 @@ public class StartUI {
             System.out.println("=== Find items by name ====");
             System.out.println("Enter name of items: ");
             String findName = scanner.nextLine();
-            Item[] find = tracker.findByName(findName);
-            if (find != null) {
-               System.out.println(Arrays.toString(find));
+            Item[] findNameItem = tracker.findByName(findName);
+            if (findNameItem != null) {
+               System.out.println(Arrays.toString(findNameItem));
             } else {
                System.out.println("Заявки с таким именем не найдены.");
             }
