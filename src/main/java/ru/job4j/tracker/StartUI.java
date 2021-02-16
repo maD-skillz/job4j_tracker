@@ -42,10 +42,10 @@ public class StartUI {
             item.setName(editName);
             Item replaceName = new Item(editName);
             if (tracker.replace(getId, replaceName)) {
-                  System.out.println("Успешно.");
-               } else {
-                  System.out.println("Ошибка.");
-               }
+               System.out.println("Успешно.");
+            } else {
+               System.out.println("Ошибка.");
+            }
 
          } else if (select == 3) {
             System.out.println("=== Delete item ====");
@@ -73,14 +73,14 @@ public class StartUI {
             System.out.println("Enter name of items: ");
             String findName = scanner.nextLine();
             Item[] findNameItem = tracker.findByName(findName);
-            if (findNameItem != null) {
+            if (findNameItem.length > 0) {
                for (int i = 0; i < findNameItem.length; i++) {
-                  System.out.println(findNameItem[i]);
+                     System.out.println(findNameItem[i]);
                }
-
             } else {
-               System.out.println("Заявки с таким именем не найдены.");
+                  System.out.println("Заявки с таким именем не найдены.");
             }
+
 
          } else if (select == 6) {
             System.out.println("Exit Program");
