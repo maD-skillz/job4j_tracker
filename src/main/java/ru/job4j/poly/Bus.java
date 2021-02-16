@@ -1,18 +1,8 @@
 package ru.job4j.poly;
 
-public class Bus implements Transport {
+public class Bus implements Vehicle {
     @Override
-    public String drive(String value) {
-        return null;
-    }
-
-    @Override
-    public int passengers(String value) {
-        return 0;
-    }
-
-    @Override
-    public int fuel(String value) {
-        return 0;
+    public void move() {
+        System.out.println(getClass().getName() + " едет по дороге.");
     }
 }
