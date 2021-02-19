@@ -18,3 +18,4 @@ public class StubInput implements Input {
         return Integer.parseInt(askStr(question));
     }
 }
+
