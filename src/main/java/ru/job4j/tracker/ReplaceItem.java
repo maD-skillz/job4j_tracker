@@ -1,6 +1,12 @@
 package ru.job4j.tracker;
 
 public class ReplaceItem implements UserAction {
+    private final Output out;
+
+    public ReplaceItem(Output out) {
+        this.out = out;
+    }
+
     @Override
     public String name() {
         return "=== Edit item ====";
@@ -12,9 +18,9 @@ public class ReplaceItem implements UserAction {
         String editName = input.askStr("Enter Name: ");
         Item replaceName = new Item(editName);
         if (tracker.replace(getId, replaceName)) {
-            System.out.println("Успешно.");
+            out.println("Успешно.");
         } else {
-            System.out.println("Ошибка.");
+            out.println("Ошибка.");
         }
         return true;
     }
