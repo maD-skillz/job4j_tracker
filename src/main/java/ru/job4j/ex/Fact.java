@@ -6,8 +6,8 @@ public class Fact {
     }
 
     public int calc(int n) {
-        if (n > 0) {
-            throw new IllegalArgumentException("Start should be less then finish.");
+        if (n < 0) {
+            throw new IllegalArgumentException("'n' should be less then zero.");
         }
         int rsl = 1;
         for (int index = 1; index <= n; index++) {
