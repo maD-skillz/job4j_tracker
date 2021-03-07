@@ -2,6 +2,8 @@ package ru.job4j.tracker;
 
 import org.junit.Test;
 
+import java.util.Arrays;
+
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.core.IsNull.nullValue;
 import static org.junit.Assert.*;
@@ -75,5 +77,61 @@ public class StartUITest {
                         "0. Exit" + System.lineSeparator()
         ));
     }
+
+    @Test
+    public void whenInvalidExit() {
+        Output out = new StubOutput();
+        Input in = new StubInput(
+                new String[] {"8", "0"}
+        );
+        Tracker tracker = new Tracker();
+        UserAction[] actions = {
+                new Exit(out)
+        };
+        new StartUI(out).init(in, tracker, actions);
+        assertThat(out.toString(), is(
+                String.format(
+                        "Menu.%n"
+                                + "0. Exit%n"
+                                + "Wrong input, you can select: 0 .. 0%n"
+                                + "Menu.%n"
+                                + "0. Exit%n"
+                )
+        ));
+    }
+
+  /*  @Test
+    public void whenFindAllItems() {
+        Tracker tracker = new Tracker();
+        Output out = new StubOutput();
+        Input in = new StubInput(
+                new String[] {"0",
+                };
+
+        UserAction[] actions = {
+                new ALLItems(out)
+                new Exit(out)
+        };
+        new StartUI(out).init(in, tracker, actions);
+        assertThat(tracker.findAll(), ALLItems);
+    } */
+
+  /*  @Test
+    public void whenFindByName() {
+        Tracker tracker = new Tracker();
+        Output out = new StubOutput();
+
+        Item findName = tracker.findByName(new Item("Find items by name"));
+
+        Input in = new StubInput(
+                new String[] {"0",String.valueOf(findName.getName()), "1"}
+        );
+        UserAction[] actions = {
+                new FindItemByName(out),
+                new Exit(out)
+        };
+        new StartUI(out).init(in, tracker, actions);
+        assertThat(tracker.findByName(), is(findName));
+    } */
 
 }
