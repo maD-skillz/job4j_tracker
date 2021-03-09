@@ -4,11 +4,10 @@ public class UserStore {
 
     public static User findUser(User[] users, String login) throws UserNotFoundException {
         for (int i = 0; i < users.length; i++) {
-            if (users[i].equals(login)) {
-                return null;
-            } else {
-                throw new UserNotFoundException("User not found!");
+            if (users[i].getUsername().equals(login)) {
+                return users[i];
             }
+                throw new UserNotFoundException("User not found!");
         }
         return null;
     }
