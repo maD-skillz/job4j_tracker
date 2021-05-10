@@ -13,7 +13,7 @@ public class StartUITest {
     public void whenCreateItem() {
            Output out = new StubOutput();
         Input in = new StubInput(
-                new String[]{"0", "Item name", "1"}
+                new String[]{"0", "Item name", "6"}
         );
         Tracker tracker = new Tracker();
         UserAction[] actions = {
@@ -88,11 +88,11 @@ public class StartUITest {
         UserAction[] actions = {
                 new Exit(out)
         };
+
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString(), is(
                 String.format(
                         "Menu.%n"
-                                + "0. Exit%n"
                                 + "Wrong input, you can select: 0 .. 0%n"
                                 + "Menu.%n"
                                 + "0. Exit%n"
@@ -100,38 +100,38 @@ public class StartUITest {
         ));
     }
 
-  /*  @Test
+    @Test
     public void whenFindAllItems() {
         Tracker tracker = new Tracker();
         Output out = new StubOutput();
         Input in = new StubInput(
-                new String[] {"0",
-                };
+                new String[] {"1", "6"});
 
         UserAction[] actions = {
-                new ALLItems(out)
+                new ALLItems(out),
                 new Exit(out)
         };
         new StartUI(out).init(in, tracker, actions);
-        assertThat(tracker.findAll(), ALLItems);
-    } */
+        assertThat(tracker.findAll(), is(tracker.findAll()));
+    }
 
-  /*  @Test
+    @Test
     public void whenFindByName() {
         Tracker tracker = new Tracker();
         Output out = new StubOutput();
 
-        Item findName = tracker.findByName(new Item("Find items by name"));
+        Item findedName = tracker.add(new Item("Finded Name"));
+        String find = "Finded Name";
 
         Input in = new StubInput(
-                new String[] {"0",String.valueOf(findName.getName()), "1"}
+                new String[] {"5", String.valueOf(findedName.getId()), find, "6"}
         );
         UserAction[] actions = {
                 new FindItemByName(out),
                 new Exit(out)
         };
         new StartUI(out).init(in, tracker, actions);
-        assertThat(tracker.findByName(), is(findName));
-    } */
+        assertThat(tracker.findByName(findedName.getName()), is(find));
+    }
 
 }
