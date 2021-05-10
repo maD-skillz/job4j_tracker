@@ -131,7 +131,8 @@ public class StartUITest {
                 new Exit(out)
         };
         new StartUI(out).init(in, tracker, actions);
-        assertThat(tracker.findByName(findedName.getName()), is(find));
+        assertThat(out.toString(tracker.findByName(findedName)), is(find));
+      //  assertThat(tracker.findByName(findedName.getName()), is(find));
     }
 
 }
