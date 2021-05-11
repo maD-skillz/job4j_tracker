@@ -91,7 +91,6 @@ public class StartUITest {
         UserAction[] actions = {
                 new Exit(out)
         };
-
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString(), is(
                 String.format(
@@ -111,14 +110,11 @@ public class StartUITest {
         Output out = new StubOutput();
         Input in = new StubInput(
                 new String[] {"0", "1"});
-
         Item item = tracker.add(new Item("item"));
-
         UserAction[] actions = {
                 new ALLItems(out),
                 new Exit(out)
         };
-
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString(), is(String.format("Menu.%n"
                 + "0. === Show all items ====%n"
@@ -135,22 +131,15 @@ public class StartUITest {
     public void whenFindByName() {
         Tracker tracker = new Tracker();
         Output out = new StubOutput();
-
-
         String find = "Finded Name";
-
         Input in = new StubInput(
                 new String[] {"0", find, "1"}
         );
-
         Item findedName = tracker.add(new Item("Finded Name"));
-
         UserAction[] actions = {
                 new FindItemByName(out),
                 new Exit(out)
         };
-
-
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString(), is(String.format("Menu.%n"
                 + "0. === Find items by name ====%n"
@@ -162,4 +151,18 @@ public class StartUITest {
                 + "0. Exit%n")));
        }
 
-}
+       @Test
+    public void whenFindById() {
+           Tracker tracker = new Tracker();
+           Output out = new StubOutput();
+           Item findId = tracker.add(new Item("Id"));
+           Input in = new StubInput(
+                   new String[]{"0", String.valueOf(findId.getId()), "1"});
+           UserAction[] actions = {
+                   new FindItemById(out),
+                   new Exit(out)
+           };
+           new StartUI(out).init(in, tracker, actions);
+           assertThat(tracker.findById(findId.getId()), is(findId));
+       }
+       }
