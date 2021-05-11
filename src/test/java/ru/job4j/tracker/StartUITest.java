@@ -73,7 +73,10 @@ public class StartUITest {
         };
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString(), is(
-                "Menu." + System.lineSeparator() +
+                "Menu." + System.lineSeparator()
+                        + "0. "
+                        + "=== Exit Program ===="
+                        + System.lineSeparator() +
                         "0. Exit" + System.lineSeparator()
         ));
     }
@@ -93,8 +96,10 @@ public class StartUITest {
         assertThat(out.toString(), is(
                 String.format(
                         "Menu.%n"
+                                + "0. === Exit Program ====%n"
                                 + "Wrong input, you can select: 0 .. 0%n"
                                 + "Menu.%n"
+                                + "0. === Exit Program ====%n"
                                 + "0. Exit%n"
                 )
         ));
@@ -116,9 +121,13 @@ public class StartUITest {
 
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString(), is(String.format("Menu.%n"
+                + "0. === Show all items ====%n"
+                + "1. === Exit Program ====%n"
                 + "=== Show all items ====%n"
                 + item + "%n"
                 + "Menu.%n"
+                + "0. === Show all items ====%n"
+                + "1. === Exit Program ====%n"
                 + "0. Exit%n")));
     }
 
@@ -144,8 +153,12 @@ public class StartUITest {
 
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString(), is(String.format("Menu.%n"
+                + "0. === Find items by name ====%n"
+                + "1. === Exit Program ====%n"
                 + findedName + "%n"
                 + "Menu.%n"
+                + "0. === Find items by name ====%n"
+                + "1. === Exit Program ====%n"
                 + "0. Exit%n")));
        }
 
