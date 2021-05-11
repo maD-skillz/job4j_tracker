@@ -13,7 +13,7 @@ public class StartUITest {
     public void whenCreateItem() {
            Output out = new StubOutput();
         Input in = new StubInput(
-                new String[]{"0", "Item name", "6"}
+                new String[]{"0", "Item name", "1"}
         );
         Tracker tracker = new Tracker();
         UserAction[] actions = {
@@ -105,14 +105,21 @@ public class StartUITest {
         Tracker tracker = new Tracker();
         Output out = new StubOutput();
         Input in = new StubInput(
-                new String[] {"1", "6"});
+                new String[] {"0", "1"});
+
+        Item item = tracker.add(new Item("item"));
 
         UserAction[] actions = {
                 new ALLItems(out),
                 new Exit(out)
         };
+
         new StartUI(out).init(in, tracker, actions);
-        assertThat(tracker.findAll(), is(tracker.findAll()));
+        assertThat(out.toString(), is(String.format("Menu.%n"
+                + "=== Show all items ====%n"
+                + item + "%n"
+                + "Menu.%n"
+                + "0. Exit%n")));
     }
 
     @Test
@@ -120,19 +127,26 @@ public class StartUITest {
         Tracker tracker = new Tracker();
         Output out = new StubOutput();
 
-        Item findedName = tracker.add(new Item("Finded Name"));
+
         String find = "Finded Name";
 
         Input in = new StubInput(
-                new String[] {"5", String.valueOf(findedName.getId()), find, "6"}
+                new String[] {"0", find, "1"}
         );
+
+        Item findedName = tracker.add(new Item("Finded Name"));
+
         UserAction[] actions = {
                 new FindItemByName(out),
                 new Exit(out)
         };
+
+
         new StartUI(out).init(in, tracker, actions);
-        assertThat(out.toString(tracker.findByName(findedName)), is(find));
-      //  assertThat(tracker.findByName(findedName.getName()), is(find));
-    }
+        assertThat(out.toString(), is(String.format("Menu.%n"
+                + findedName + "%n"
+                + "Menu.%n"
+                + "0. Exit%n")));
+       }
 
 }
