@@ -163,6 +163,13 @@ public class StartUITest {
                    new Exit(out)
            };
            new StartUI(out).init(in, tracker, actions);
-           assertThat(tracker.findById(findId.getId()), is(findId));
+           assertThat(out.toString(), is(String.format("Menu.%n"
+                   + "0. === Find item by Id ====%n"
+                   + "1. === Exit Program ====%n"
+                   + findId.getId() + "%n"
+                   + "Menu.%n"
+                   + "0. === Find item by Id ====%n"
+                   + "1. === Exit Program ====%n"
+                   + "0. Exit%n")));
        }
        }
