@@ -166,7 +166,7 @@ public class StartUITest {
            assertThat(out.toString(), is(String.format("Menu.%n"
                    + "0. === Find item by Id ====%n"
                    + "1. === Exit Program ====%n"
-                   + findId.getId() + "%n"
+                   + findId + "%n"
                    + "Menu.%n"
                    + "0. === Find item by Id ====%n"
                    + "1. === Exit Program ====%n"
