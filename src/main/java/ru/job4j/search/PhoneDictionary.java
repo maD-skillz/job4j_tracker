@@ -9,8 +9,16 @@ public class PhoneDictionary {
         this.persons.add(person);
     }
 
+    public void print() {
+        for (Person findPerson : persons) {
+            if (findPerson == persons.contains(key))
+            System.out.println(findPerson.getName());
+        }
+    }
+
     /**
      * Вернуть список всех пользователей, который содержат key в любых полях.
+     *
      * @param key Ключ поиска.
      * @return Список подощедщих пользователей.
      */
