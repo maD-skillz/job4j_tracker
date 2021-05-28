@@ -9,13 +9,6 @@ public class PhoneDictionary {
         this.persons.add(person);
     }
 
-    public void print() {
-        for (Person findPerson : persons) {
-            if (findPerson == persons.contains(key))
-            System.out.println(findPerson.getName());
-        }
-    }
-
     /**
      * Вернуть список всех пользователей, который содержат key в любых полях.
      *
@@ -24,6 +17,12 @@ public class PhoneDictionary {
      */
     public ArrayList<Person> find(String key) {
         ArrayList<Person> result = new ArrayList<>();
+        for (Person findPerson : persons) {
+            if (findPerson.getName().contains(key) || findPerson.getAddress().contains(key) ||
+            findPerson.getPhone().contains(key) || findPerson.getSurname().contains(key)) {
+                result.add(findPerson);
+            }
+        }
         return result;
     }
 }
