@@ -11,24 +11,24 @@ public class StartUI {
       this.out = out;
    }
 
-   public void init(Input input, Tracker tracker, UserAction[] actions) {
+   public void init(Input input, Tracker tracker, List result) {
       boolean run = true;
       while (run) {
-         this.showMenu(actions);
+         this.showMenu(result);
          int select = input.askInt("Select: ");
-         if (select < 0 || select >= actions.length) {
-            out.println("Wrong input, you can select: 0 .. " + (actions.length - 1));
+         if (select < 0 || result > result.size()) {
+            out.println("Wrong input, you can select: 0 .. " + (result));
             continue;
          }
-         UserAction action = actions[select];
-         run = action.execute(input, tracker);
+         List result = result[select];
+         run = result.execute(input, tracker);
       }
    }
 
-   private void showMenu(UserAction[] actions) {
+   private void showMenu(List result) {
       out.println("Menu.");
-      for (int index = 0; index < actions.length; index++) {
-         out.println(index + ". " + actions[index].name());
+      for (Object index : result) {
+         out.println(index + ". " + result[index].name());
       }
    }
 
@@ -37,7 +37,7 @@ public class StartUI {
       Input input = new ValidateInput(output, new ConsoleInput());
       Tracker tracker = new Tracker();
       List<Item> result = new ArrayList<>;
-     result.add(new Item CreateAction(output));
+      result.add(new Item CreateAction(output));
       result.add(new ALLItems(output));
       result.add(new ReplaceItem(output));
       result.add(new DeleteItem(output));
