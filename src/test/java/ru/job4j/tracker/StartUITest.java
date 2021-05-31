@@ -42,7 +42,7 @@ public class StartUITest {
             result.add(new Exit(out));
 
         new StartUI(out).init(in, tracker, result);
-        assertThat(tracker.findById(addItem.getId()).getName(), is(replacedName));
+        assertThat(tracker.findById(addItem.getId()), is(replacedName));
     }
 
     @Test
@@ -118,7 +118,7 @@ public class StartUITest {
         result.add(new Exit(out));
 
         new StartUI(out).init(in, tracker, result);
-        assertThat(out.toString(), is(String.format("Menu.%n"
+        assertThat(tracker.findAll(), is(String.format("Menu.%n"
                 + "0. === Show all items ====%n"
                 + "1. === Exit Program ====%n"
                 + "=== Show all items ====%n"

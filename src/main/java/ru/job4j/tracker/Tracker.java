@@ -18,12 +18,14 @@ public class Tracker {
     }
 
     public List findByName(String key) {
+        List<Item> rsl = new ArrayList<>();
         for (Item index : items) {
-            if (index.getName().equals(key)) {
-               index.getName() = items;
+            Item name = index;
+            if (name.getName().equals(key)) {
+               items.add(index);
             }
         }
-        return items;
+        return List.copyOf(items);
     }
 
     private int indexOf(int id) {
@@ -43,10 +45,10 @@ public class Tracker {
     }
 
     public boolean replace(int id, Item item) {
-    Item index = indexOf(id);
+    int index = indexOf(id);
     boolean rsl = index != -1;
     if (rsl) {
-        items.set(id, index);
+        items.set(id, item);
     }
     return rsl;
     }
