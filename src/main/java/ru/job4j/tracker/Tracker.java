@@ -19,13 +19,12 @@ public class Tracker {
 
     public List findByName(String key) {
         List<Item> rsl = new ArrayList<>();
-        for (Item index : items) {
-            Item name = index;
-            if (name.getName().equals(key)) {
-               items.add(index);
+        for (Item item : items) {
+            if (item.getName().equals(key)) {
+               items.add(item);
             }
         }
-        return List.copyOf(items);
+        return rsl;
     }
 
     private int indexOf(int id) {

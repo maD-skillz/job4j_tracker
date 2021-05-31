@@ -25,6 +25,7 @@ public class StartUI {
       }
    }
 
+
    private void showMenu(List result) {
       out.println("Menu.");
       for (Object index : result) {
