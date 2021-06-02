@@ -44,7 +44,7 @@ public class TrackerTest {
         };
 
         Item replaced = tracker.findById(item.getId());
-        assertThat(replaced.getName(), is(answers));
+        assertThat(replaced, is(answers));
     }
 
     @Test

@@ -14,8 +14,9 @@ public class StartUITest {
        @Test
     public void whenCreateItem() {
            Output out = new StubOutput();
+           String newItem = "New Item";
         Input in = new StubInput(
-                new String[]{"0", "Item name", "1"}
+                new String[]{"0", newItem, "1"}
         );
         Tracker tracker = new Tracker();
            List<UserAction> result = new ArrayList<>();
@@ -23,7 +24,7 @@ public class StartUITest {
                result.add(new Exit(out));
 
                new StartUI(out).init(in, tracker, result);
-        assertThat(tracker.findAll(), is("Item name"));
+        assertThat(tracker.findAll(), is(newItem));
     }
 
     @Test
@@ -110,15 +111,15 @@ public class StartUITest {
     public void whenFindAllItems() {
         Tracker tracker = new Tracker();
         Output out = new StubOutput();
+        Item item = tracker.add(new Item("item"));
         Input in = new StubInput(
                 new String[] {"0", "1"});
-        Item item = tracker.add(new Item("item"));
         List<UserAction> result = new ArrayList<>();
         result.add(new ALLItems(out));
         result.add(new Exit(out));
 
         new StartUI(out).init(in, tracker, result);
-        assertThat(tracker.findAll(), is(String.format("Menu.%n"
+        assertThat(out.toString(), is(String.format("Menu.%n"
                 + "0. === Show all items ====%n"
                 + "1. === Exit Program ====%n"
                 + "=== Show all items ====%n"
@@ -133,11 +134,11 @@ public class StartUITest {
     public void whenFindByName() {
         Tracker tracker = new Tracker();
         Output out = new StubOutput();
-        String find = "Finded Name";
+        String find = "Name to find";
         Input in = new StubInput(
                 new String[] {"0", find, "1"}
         );
-        Item findedName = tracker.add(new Item("Finded Name"));
+        Item nameToFind = tracker.add(new Item("Name to find"));
         List<UserAction> result = new ArrayList<>();
         result.add(new FindItemByName(out));
         result.add(new Exit(out));
@@ -146,7 +147,7 @@ public class StartUITest {
         assertThat(out.toString(), is(String.format("Menu.%n"
                 + "0. === Find items by name ====%n"
                 + "1. === Exit Program ====%n"
-                + findedName + "%n"
+                + nameToFind + "%n"
                 + "Menu.%n"
                 + "0. === Find items by name ====%n"
                 + "1. === Exit Program ====%n"

@@ -21,7 +21,7 @@ public class Tracker {
         List<Item> rsl = new ArrayList<>();
         for (Item item : items) {
             if (item.getName().equals(key)) {
-               items.add(item);
+                rsl.add(item);
             }
         }
         return rsl;
