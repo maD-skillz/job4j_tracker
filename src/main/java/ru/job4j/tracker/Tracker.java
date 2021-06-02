@@ -13,11 +13,11 @@ public class Tracker {
         return item;
     }
 
-    public List findAll() {
+    public List<Item> findAll() {
         return List.copyOf(items);
     }
 
-    public List findByName(String key) {
+    public List<Item> findByName(String key) {
         List<Item> rsl = new ArrayList<>();
         for (Item item : items) {
             if (item.getName().equals(key)) {

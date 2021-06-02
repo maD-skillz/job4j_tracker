@@ -24,7 +24,7 @@ public class StartUITest {
                result.add(new Exit(out));
 
                new StartUI(out).init(in, tracker, result);
-        assertThat(tracker.findAll(), is(newItem));
+        assertThat(tracker.findAll().get(0).getName(), is(newItem));
     }
 
     @Test

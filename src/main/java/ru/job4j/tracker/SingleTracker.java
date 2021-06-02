@@ -22,7 +22,7 @@ public class SingleTracker {
     }
 
     public Item findById(int id) {
-        return null;
+        return tracker.findById(id);
     }
 
     public List findAll() {
