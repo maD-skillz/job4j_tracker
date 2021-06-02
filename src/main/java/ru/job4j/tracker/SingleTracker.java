@@ -25,11 +25,11 @@ public class SingleTracker {
         return tracker.findById(id);
     }
 
-    public List findAll() {
+    public List<Item> findAll() {
         return tracker.findAll();
     }
 
-    public List findByName(String key) {
+    public List<Item> findByName(String key) {
         return tracker.findByName(key);
     }
 
