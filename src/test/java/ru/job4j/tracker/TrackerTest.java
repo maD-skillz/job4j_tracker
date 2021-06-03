@@ -30,21 +30,7 @@ public class TrackerTest {
         Item bugWithDesc = new Item();
         bugWithDesc.setName("Bug with description");
         tracker.replace(id, bugWithDesc);
-        assertThat(tracker.findById(id), is("Bug with description"));
-    }
-
-    @Test
-    public void whenReplaceItem() {
-        Tracker tracker = new Tracker();
-        Item item = new Item("replaced item");
-        tracker.add(item);
-        String[] answers = {
-                String.valueOf(item.getId()), "5",
-                "replaced item"
-        };
-
-        Item replaced = tracker.findById(item.getId());
-        assertThat(replaced, is(answers));
+        assertThat(tracker.findById(id).getName(), is("Bug with description"));
     }
 
     @Test
@@ -58,22 +44,4 @@ public class TrackerTest {
         assertThat(tracker.findById(id), is(nullValue()));
     }
 
-    @Test
-    public void whenDeleteItem() {
-        Tracker tracker = new Tracker();
-        Output out = new StubOutput();
-        /* Добавим в tracker новую заявку */
-        Item item = tracker.add(new Item("Deleted item"));
-
-        /* Входные данные должны содержать ID добавленной заявки item.getId() */
-        Input in = new StubInput(
-                new String[] {"0", String.valueOf(item.getId()), "1"}
-        );
-        List<UserAction> result = new ArrayList<>();
-        result.add(new DeleteItem(out));
-        result.add(new Exit(out));
-
-        new StartUI(out).init(in, tracker, result);
-        assertThat(tracker.findById(item.getId()), is(nullValue()));
-    }
 }
