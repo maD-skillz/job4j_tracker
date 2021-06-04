@@ -17,6 +17,9 @@ public class UniqueText {
             if (check.contains(index2)) {
                 return true;
             }
+            else {
+                return false;
+            }
 
         }
 
