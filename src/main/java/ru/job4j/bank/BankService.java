@@ -47,8 +47,11 @@ public class BankService {
         boolean rsl = false;
         Account user1 = findByRequisite(srcPassport, srcRequisite);
         Account user2 = findByRequisite(destPassport, destRequisite);
-        if (user1 != null && user2 != null) {
-            amount = user1 - user2;
+        if (user1 != null && user2 != null && user1.getBalance() > 0) {
+            double user1Balance = user1.getBalance();
+            double user2Balance = user2.getBalance();
+            amount = user1Balance + user2Balance;
+            user2.setBalance(amount);
         }
         return rsl;
     }
