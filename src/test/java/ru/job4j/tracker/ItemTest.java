@@ -13,16 +13,9 @@ public class ItemTest {
 
     @Test
     public void whenSortToHigh() {
-        Item cat = new Item();
-        Item dog = new Item();
-        Item fish = new Item();
-
-        fish.setId(3);
-        fish.setName("Fish");
-        dog.setId(2);
-        dog.setName("Dog");
-        cat.setId(1);
-        cat.setName("Cat");
+        Item cat = new Item(1, "Cat");
+        Item dog = new Item(2, "Dog");
+        Item fish = new Item(3, "Fish");
 
         List<Item> itemList = new ArrayList<>();
         itemList.add(fish);
@@ -39,16 +32,9 @@ public class ItemTest {
 
     @Test
     public void whenSortToLow() {
-        Item cat = new Item();
-        Item dog = new Item();
-        Item fish = new Item();
-
-        cat.setId(1);
-        cat.setName("Cat");
-        fish.setId(3);
-        fish.setName("Fish");
-        dog.setId(2);
-        dog.setName("Dog");
+        Item cat = new Item(1, "Cat");
+        Item dog = new Item(2, "Dog");
+        Item fish = new Item(3, "Fish");
 
         List<Item> itemList = new ArrayList<>();
         itemList.add(fish);
