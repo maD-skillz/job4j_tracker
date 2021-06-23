@@ -37,9 +37,11 @@ public class ItemTest {
         Item fish = new Item(3, "Fish");
 
         List<Item> itemList = new ArrayList<>();
-        itemList.add(fish);
         itemList.add(dog);
         itemList.add(cat);
+        itemList.add(fish);
+
+
         Collections.sort(itemList, new SortDescByName());
 
         List<Item> expectedList = new ArrayList<>();
