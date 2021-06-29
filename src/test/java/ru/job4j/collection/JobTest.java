@@ -14,7 +14,7 @@ public class JobTest {
         int rsl = cmpName.compare(new Job("Spoon", 0),
         new Job("Fork", 1)
         );
-        assertThat(rsl, lessThan(0));
+        assertThat(rsl, greaterThan(0));
     }
 
     @Test
