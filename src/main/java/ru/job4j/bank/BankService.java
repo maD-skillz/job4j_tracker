@@ -24,8 +24,9 @@ public class BankService {
 
     public User findByPassport(String passport) {
         for (User passportFind : users.keySet()) {
-            if (passport.equals(passportFind.getPassport()))
+            if (passport.equals(passportFind.getPassport())) {
                 return passportFind;
+            }
         }
         return null;
     }
@@ -43,7 +44,6 @@ public class BankService {
         }
         return result;
     }
-
 
     public boolean transferMoney(String srcPassport, String srcRequisite,
                                  String destPassport, String destRequisite, double amount) {

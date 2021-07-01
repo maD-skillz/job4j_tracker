@@ -17,7 +17,7 @@ public class ValidateInput implements Input  {
     @Override
     public int askInt(String question) {
         boolean invalid = true;
-        int value = - 1;
+        int value = -1;
         do {
             try {
                 value = in.askInt(question);

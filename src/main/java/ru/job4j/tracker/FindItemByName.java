@@ -1,6 +1,5 @@
 package ru.job4j.tracker;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class FindItemByName implements UserAction {
@@ -9,6 +8,7 @@ public class FindItemByName implements UserAction {
     public FindItemByName(Output out) {
         this.out = out;
     }
+
     @Override
     public String name() {
         return "=== Find items by name ====";

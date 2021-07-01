@@ -1,7 +1,6 @@
 package ru.job4j.tracker;
 
 import org.junit.Test;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -27,7 +26,7 @@ public class ItemTest {
         expectedList.add(cat);
         expectedList.add(dog);
         expectedList.add(fish);
-        assertThat(itemList , is(expectedList));
+        assertThat(itemList, is(expectedList));
     }
 
     @Test
@@ -40,15 +39,12 @@ public class ItemTest {
         itemList.add(dog);
         itemList.add(cat);
         itemList.add(fish);
-
-
         Collections.sort(itemList, new SortDescByName());
 
         List<Item> expectedList = new ArrayList<>();
         expectedList.add(fish);
         expectedList.add(dog);
         expectedList.add(cat);
-        assertThat(itemList , is(expectedList));
+        assertThat(itemList, is(expectedList));
     }
-
 }

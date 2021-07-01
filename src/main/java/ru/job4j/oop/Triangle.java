@@ -1,12 +1,9 @@
 package ru.job4j.oop;
-import static java.lang.Math.sqrt;
-import static java.lang.Math.pow;
 
 public class Triangle {
     private Point first;
     private Point second;
     private Point third;
-
 
     public Triangle(Point ap, Point bp, Point cp) {
         this.first = ap;
@@ -17,7 +14,6 @@ public class Triangle {
     public double period(double a, double b, double c) {
         return (a + b + c) / 2;
     }
-
 
     public boolean exist(double ab, double ac, double bc) {
         if ((ab < (ac + bc)) && (ac < (ab + bc)) && (bc < (ab + ac))) {

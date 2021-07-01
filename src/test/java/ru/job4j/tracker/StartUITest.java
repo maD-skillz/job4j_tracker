@@ -2,21 +2,21 @@ package ru.job4j.tracker;
 
 import org.junit.Test;
 
-
 import java.util.ArrayList;
 import java.util.List;
-
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.core.IsNull.nullValue;
 import static org.junit.Assert.*;
 
 public class StartUITest {
+
        @Test
     public void whenCreateItem() {
            Output out = new StubOutput();
            String newItem = "New Item";
         Input in = new StubInput(
-                new String[]{"0", newItem, "1"}
+                new String[]{"0",
+                        newItem, "1"}
         );
         Tracker tracker = new Tracker();
            List<UserAction> result = new ArrayList<>();
@@ -36,7 +36,7 @@ public class StartUITest {
         /* Входные данные должны содержать ID добавленной заявки item.getId() */
         String replacedName = "Replaced name";
         Input in = new StubInput(
-                new String[] {"0",String.valueOf(addItem.getId()), replacedName, "1"}
+                new String[] {"0", String.valueOf(addItem.getId()), replacedName, "1"}
         );
         List<UserAction> result = new ArrayList<>();
             result.add(new ReplaceItem(out));
@@ -79,8 +79,9 @@ public class StartUITest {
                 "Menu." + System.lineSeparator()
                         + "0. "
                         + "=== Exit Program ===="
-                        + System.lineSeparator() +
-                        "0. Exit" + System.lineSeparator()
+                        + System.lineSeparator()
+                        + "0. Exit"
+                        + System.lineSeparator()
         ));
     }
 
@@ -155,7 +156,7 @@ public class StartUITest {
        }
 
        @Test
-    public void whenFindById() {
+       public void whenFindById() {
            Tracker tracker = new Tracker();
            Output out = new StubOutput();
            Item findId = tracker.add(new Item("Id"));
@@ -175,4 +176,4 @@ public class StartUITest {
                    + "1. === Exit Program ====%n"
                    + "0. Exit%n")));
        }
-       }
+}

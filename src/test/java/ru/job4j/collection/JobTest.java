@@ -46,7 +46,8 @@ public class JobTest {
 
     @Test
     public void whenAscByNameAndPriority() {
-        Comparator<Job> cmpPriorityName = new SortAscJobByPriority().thenComparing(new SortAscJobByName());
+        Comparator<Job> cmpPriorityName = new SortAscJobByPriority().
+                thenComparing(new SortAscJobByName());
         int rsl = cmpPriorityName.compare(new Job("Spoon", 0),
                 new Job("Fork", 1)
         );
@@ -55,7 +56,8 @@ public class JobTest {
 
     @Test
     public void whenAscByNameAndDescPriority() {
-        Comparator<Job> cmpNameDescPriority = new SortAscJobByName().thenComparing(new SortDescJobByPriority());
+        Comparator<Job> cmpNameDescPriority = new SortAscJobByName().
+                thenComparing(new SortDescJobByPriority());
         int rsl = cmpNameDescPriority.compare(new Job("Spoon", 0),
                 new Job("Fork", 1)
         );
@@ -64,7 +66,8 @@ public class JobTest {
 
     @Test
     public void whenDescByNameAndAscPriority() {
-        Comparator<Job> cmpNameAndAscPriority = new SortDescJobByName().thenComparing(new SortAscJobByPriority());
+        Comparator<Job> cmpNameAndAscPriority = new SortDescJobByName().
+                thenComparing(new SortAscJobByPriority());
         int rsl = cmpNameAndAscPriority.compare(new Job("Spoon", 0),
                 new Job("Fork", 1)
         );
@@ -73,13 +76,12 @@ public class JobTest {
 
     @Test
     public void whenComparatorByNameAndPriority() {
-        Comparator<Job> cmpNamePriority = new SortDescJobByName().thenComparing(new SortDescJobByPriority());
+        Comparator<Job> cmpNamePriority = new SortDescJobByName().
+                thenComparing(new SortDescJobByPriority());
         int rsl = cmpNamePriority.compare(
                 new Job("Fix bug", 0),
                 new Job("Fix bug", 1)
         );
         assertThat(rsl, greaterThan(0));
     }
-
-
 }
