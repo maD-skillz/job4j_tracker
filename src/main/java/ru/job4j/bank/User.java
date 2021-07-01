@@ -1,6 +1,12 @@
 package ru.job4j.bank;
 
 import java.util.Objects;
+/**
+ * Класс содержит поля: номер паспорта и ФИО.
+ * Работает с классом BankService.
+ * @author EGOR POPOV
+ * @version 1.0
+ */
 
 public class User {
     private String passport;
