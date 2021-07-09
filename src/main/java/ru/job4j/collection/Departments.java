@@ -1,9 +1,6 @@
 package ru.job4j.collection;
 
-import java.util.ArrayList;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class Departments {
 
@@ -12,15 +9,22 @@ public class Departments {
         for (String value : deps) {
             String start = "";
             for (String el : value.split("/")) {
-                tmp.add(start + value);
+                if (start.equals("")) {
+                    start = el;
+                } else {
+                    start += "/" + el;
+                }
+                tmp.add(start);
                 }
         }
         return new ArrayList<>(tmp);
     }
 
     public static void sortAsc(List<String> orgs) {
+        orgs.sort(Comparator.naturalOrder());
     }
 
     public static void sortDesc(List<String> orgs) {
+        orgs.sort(new DepDescComp());
     }
 }
