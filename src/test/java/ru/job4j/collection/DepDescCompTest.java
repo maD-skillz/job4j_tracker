@@ -34,6 +34,7 @@ public class DepDescCompTest {
         Departments.sortAsc(input);
         assertThat(input, is(expect));
     }
+
     @Test
     public void whenDescSorted1() {
         List<String> input = Arrays.asList("k2", "k1", "k1/sk1", "k1/sk1/ssk1", "k2/sk1");
@@ -41,6 +42,7 @@ public class DepDescCompTest {
         Departments.sortDesc(input);
         assertThat(input, is(expect));
     }
+
     @Test
     public void whenDescSorted2() {
         List<String> input = Arrays.asList("k1", "k1/sk1", "k1/sk1/ssk1", "k2", "k2/sk1");
