@@ -9,9 +9,7 @@ public class StudentFilter {
         return students.stream()
                 .collect(Collectors.toMap(
                         Student::getSurname, e -> e,
-                        (f, e) -> {
-                            return f.equals(e) ? f : e;
-                        }
+                        (f, e) -> f
                 ));
     }
 }
