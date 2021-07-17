@@ -2,7 +2,6 @@ package ru.job4j.stream;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -24,7 +23,6 @@ public class MatrixToListTest {
         );
         assertThat(Stream.of(testMatrix)
                 .flatMap(Stream::of)
-                .collect(Collectors.toList()) , is(expected));
+                .collect(Collectors.toList()), is(expected));
     }
-
 }
