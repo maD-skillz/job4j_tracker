@@ -15,8 +15,10 @@ public class StudentFilterTest {
         List<Student> students = Arrays.asList(
                 new Student(30, "Petrov"),
                 new Student(35, "Boshyrov"),
+                new Student(30, "Petrov"),
                 new Student(90, "Bond"),
-                new Student(50, "Newman")
+                new Student(50, "Newman"),
+                new Student(90, "Bond")
         );
         Map<String, Student> studentMap = new HashMap<>();
         for (Student student : students) {
