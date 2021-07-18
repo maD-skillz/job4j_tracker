@@ -73,5 +73,23 @@ public class BuilderCar {
                 .build();
         System.out.println(builderCar);
     }
+
+    @Override
+    public String toString() {
+        return "BuilderCar{"
+                + "name='"
+                + name + '\''
+                + ", model='"
+                + model + '\''
+                + ", year="
+                + year
+                + ", maxSpeed="
+                + maxSpeed
+                + ", range="
+                + range
+                + ", insurance="
+                + insurance
+                + '}';
+    }
 }
 
