@@ -32,9 +32,9 @@ import java.util.stream.Stream;
         public String toString() {
             return "Card{"
                     + "suit="
-                    + suit
+                    + Suit.Diamonds
                     + ", value="
-                    + value
+                    + Value.V_7
                     + '}';
         }
     }
