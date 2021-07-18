@@ -1,15 +1,12 @@
 package ru.job4j.stream;
 
 import org.junit.Test;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
 public class StudentLevelTest {
-
     @Test
     public void whenSorted() {
         List<Student> input = new ArrayList<>();
@@ -34,8 +31,8 @@ public class StudentLevelTest {
     public void whenHasNull() {
         List<Student> input = new ArrayList<>();
         input.add(null);
-        input.add(new Student(28, "Pety"));
-        List<Student> expected = List.of(new Student(28, "Pety"));
+        input.add(new Student(28, "Petya"));
+        List<Student> expected = List.of(new Student(28, "Petya"));
         assertThat(StudentLevel.levelOf(input, 10), is(expected));
     }
 }

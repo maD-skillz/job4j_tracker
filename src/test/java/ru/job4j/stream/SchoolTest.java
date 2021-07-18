@@ -8,7 +8,6 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
 public class SchoolTest {
-
     @Test
     public void whenCollectClassA() {
         List<Student> students = List.of(

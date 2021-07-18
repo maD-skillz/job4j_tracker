@@ -9,7 +9,7 @@ import static org.junit.Assert.*;
 public class ProfilesTest {
     @Test
     public void whenGetAddress() {
-        List<Address> addressList = Arrays.asList(
+        List<Address> addressList = List.of(
                 new Address("New York", "6th Avenue", 6, 12),
                 new Address("Washington", "North Capital Street", 15, 2),
                 new Address("Springfield", "Everhreen Street", 1, 1)
@@ -37,7 +37,7 @@ public class ProfilesTest {
                 new Profile(addressList.get(3)),
                 new Profile(addressList.get(4))
         );
-        List<Address> expectedList = Arrays.asList(
+        List<Address> expectedList = List.of(
                 new Address("New York", "6th Avenue", 6, 12),
                 new Address("Springfield", "Evergreen Street", 1, 1),
                 new Address("Washington", "North Capital Street", 15, 2)
