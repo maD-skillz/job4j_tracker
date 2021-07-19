@@ -1,9 +1,7 @@
 package ru.job4j.bank;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.Optional;
 
 /**
  * Класс описывает работу банковской системы, которая хранит в себе список пользоватлей, их
@@ -31,9 +29,9 @@ public class BankService {
      * @param account добавляет счёт.
      */
     public void addAccount(String passport, Account account) {
-        User findPassport = findByPassport(passport);
-        if (findPassport != null) {
-            List<Account> accounts = users.get(findPassport);
+        Optional<User> findPassport = findByPassport(passport);
+        if (findPassport.isPresent()) {
+            List<Account> accounts = users.get(findPassport.get());
             if (!accounts.contains(account)) {
                 accounts.add(account);
             }
@@ -45,12 +43,12 @@ public class BankService {
      * @param passport поиск паспорта.
      * @return возвращает найденный паспорт.
      */
-    public User findByPassport(String passport) {
+    public Optional<User> findByPassport(String passport) {
         return users.keySet()
                 .stream()
                 .filter(s -> s.getPassport().equals(passport))
-                .findFirst()
-                .orElse(null);
+                .findFirst().get()
+                .isPresent();
     }
 
     /**
@@ -60,8 +58,8 @@ public class BankService {
      * @return возвращает найденный счёт.
      */
     public Account findByRequisite(String passport, String requisite) {
-        User user = findByPassport(passport);
-        if (user != null) {
+        Optional user = findByPassport(passport);
+        if (user.isPresent()) {
             return users.get(user)
                     .stream()
                     .filter(s -> s.getRequisite().equals(requisite))
