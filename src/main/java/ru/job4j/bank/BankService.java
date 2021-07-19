@@ -47,8 +47,7 @@ public class BankService {
         return users.keySet()
                 .stream()
                 .filter(s -> s.getPassport().equals(passport))
-                .findFirst().get()
-                .isPresent();
+                .findFirst();
     }
 
     /**
@@ -57,16 +56,15 @@ public class BankService {
      * @param requisite сравнение по реквизитам.
      * @return возвращает найденный счёт.
      */
-    public Account findByRequisite(String passport, String requisite) {
+    public Optional<Account> findByRequisite(String passport, String requisite) {
         Optional user = findByPassport(passport);
         if (user.isPresent()) {
             return users.get(user)
                     .stream()
                     .filter(s -> s.getRequisite().equals(requisite))
-                    .findFirst()
-                    .orElse(null);
+                    .findFirst();
         }
-        return null;
+        return Optional.empty();
     }
 
     /**
